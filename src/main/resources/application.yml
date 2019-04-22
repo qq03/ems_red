@@ -1,0 +1,24 @@
+server:
+  port: 8989  #用来指定服务器端口号
+  context-path: /ems_red #用来指定项目名，必须以/开头
+
+  #      默认springboot展示jsp时不支持文件的热部署，更改配置
+  jsp-servlet:
+    init-parameters:
+      development: true
+      #  配置视图解析器
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ems
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations: classpath:com/baizhi/mapper/*.xml
+  type-aliases-package: com.baizhi.entity
